@@ -1,0 +1,131 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Variables */
+:root {
+  --bg: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  --card: #ffffff;
+  --text: #222222;
+  --muted: #666666;
+  --border: #e5e7eb;
+  --primary: #6a11cb;
+  --primary-2: #2575fc;
+  --danger: #ff4d6d;
+  --danger-2: #e63950;
+  --badge-low: #10b98133;
+  --badge-med: #f59e0b33;
+  --badge-high: #ef444433;
+  --badge-low-text: #0f766e;
+  --badge-med-text: #92400e;
+  --badge-high-text: #991b1b;
+  --item-bg: #f9f9f9;
+  --item-bg-hover: #f1e7ff;
+}
+
+body.dark {
+  --bg: linear-gradient(135deg, #0f172a 0%, #1f2937 100%);
+  --card: #0b1220;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #1f2937;
+  --primary: #8b5cf6;
+  --primary-2: #60a5fa;
+  --danger: #fb7185;
+  --danger-2: #f43f5e;
+  --badge-low: #10b98126;
+  --badge-med: #f59e0b26;
+  --badge-high: #ef444426;
+  --badge-low-text: #34d399;
+  --badge-med-text: #fbbf24;
+  --badge-high-text: #f87171;
+  --item-bg: #0f172a;
+  --item-bg-hover: #111827;
+}
+
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+}
+
+/* Container */
+.container {
+  background: var(--card);
+  width: min(92vw, 540px);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: .75rem; margin-bottom: 1rem;
+}
+
+h1 { font-size: 1.5rem; letter-spacing: .5px; }
+
+.toggle {
+  border: 1px solid var(--border);
+  background: transparent; color: var(--text);
+  padding: .5rem .75rem; border-radius: 999px; cursor: pointer;
+  transition: .2s;
+}
+.toggle:hover { background: var(--item-bg-hover); }
+
+/* Form */
+form { display: grid; grid-template-columns: 1fr 140px 92px; gap: .5rem; }
+.input, .select, .btn {
+  border: 1.5px solid var(--border);
+  border-radius: 10px; padding: .75rem .9rem;
+  background: transparent; color: var(--text);
+  font-size: .95rem;
+}
+.input::placeholder { color: var(--muted); }
+
+.btn {
+  background: var(--primary); color: white; border: none; cursor: pointer;
+  transition: .2s; font-weight: 600;
+}
+.btn:hover { background: var(--primary-2); }
+
+/* Controls */
+.controls { display: grid; grid-template-columns: repeat(4,1fr); gap: .5rem; margin: .9rem 0; }
+.chip, .danger {
+  border: 1px solid var(--border); background: transparent;
+  color: var(--text); border-radius: 999px; padding: .5rem .75rem; cursor: pointer;
+  transition: .2s; font-size: .9rem;
+}
+.chip.active { border-color: var(--primary); }
+.chip:hover { background: var(--item-bg-hover); }
+
+.danger { border: none; background: var(--danger); color: #fff; }
+.danger:hover { background: var(--danger-2); }
+
+/* Todo List */
+.todos { list-style: none; margin-top: .5rem; max-height: 360px; overflow: auto; padding-right: .25rem; }
+
+.todos li {
+  background: var(--item-bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: .8rem .9rem; margin-bottom: .55rem;
+  display: grid; grid-template-columns: 1fr auto; gap: .75rem; align-items: center;
+  cursor: pointer; transition: .2s;
+}
+.todos li:hover { background: var(--item-bg-hover); }
+.todos li.completed { opacity: .75; text-decoration: line-through; }
+
+.row { display: flex; align-items: center; gap: .6rem; }
+.badge { font-size: .75rem; padding: .25rem .5rem; border-radius: 999px; font-weight: 600; }
+.low { background: var(--badge-low); color: var(--badge-low-text); }
+.medium { background: var(--badge-med); color: var(--badge-med-text); }
+.high { background: var(--badge-high); color: var(--badge-high-text); }
+
+.small { color: var(--muted); font-size: .78rem; }
+.empty { border: 1px dashed var(--border); padding: 1rem; border-radius: 12px; text-align: center; color: var(--muted); }
+.footer { margin-top: .6rem; text-align: center; color: var(--muted); font-size: .8rem; }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo App – Dark Mode + Priority</title>
+  <link rel="stylesheet" href="todo.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <h1>✨ My Todos</h1>
+      <button id="themeToggle" class="toggle" aria-label="Toggle theme">🌙 Dark</button>
+    </div>
+
+    <form id="form" autocomplete="off">
+      <input id="input" class="input" type="text" placeholder="What do you want to do?" />
+      <select id="priority" class="select" aria-label="Priority">
+        <option value="low">Low priority</option>
+        <option value="medium" selected>Medium priority</option>
+        <option value="high">High priority</option>
+      </select>
+      <button type="submit" class="btn">Add</button>
+    </form>
+
+    <div class="controls">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="active">Active</button>
+      <button class="chip" data-filter="completed">Completed</button>
+      <button id="clearAll" class="danger">Clear All</button>
+    </div>
+
+    <div class="meta">
+      <span id="count">0 items</span>
+      <span id="progress" class="small">0% done</span>
+    </div>
+
+    <ul id="todos" class="todos"></ul>
+    <div id="empty" class="empty" hidden>Nothing here yet. Add your first task! ✍️</div>
+
+    <div class="footer small">Click = complete · Double-click = edit · Right-click = delete</div>
+  </div>
+
+  <script src="todo.js"></script>
+</body>
+</html>
+
